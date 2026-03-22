@@ -1,0 +1,605 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "last_updated": "2026-03-01",
+    "sources": [
+      "MedlinePlus (NIH) - Public Domain",
+      "NIDCR (National Institute of Dental Research) - Public Domain",
+      "ADA Patient Education - Attribution Required",
+      "CDC Oral Health Guidelines - Public Domain",
+      "OpenFDA Drug API - Public Domain"
+    ],
+    "disclaimer": "For educational purposes only. Not a substitute for professional dental or medical advice, diagnosis, or treatment.",
+    "total_conditions": 52,
+    "categories": 8
+  },
+  "categories": [
+    {
+      "id": "restorative",
+      "name": "Restorative Dentistry",
+      "icon": "🦷",
+      "color": "#4A90D9",
+      "conditions": [
+        {
+          "id": "dental-cavity",
+          "name": "Dental Cavity (Caries)",
+          "severity_levels": ["Early/Enamel", "Moderate/Dentin", "Advanced/Pulp"],
+          "icd_code": "K02",
+          "prevalence": "90% of adults have had at least one cavity",
+          "patient_explanation": {
+            "what_it_is": "A cavity is a small hole in your tooth caused by bacteria. Think of it like rust on metal — bacteria on your teeth produce acid that slowly eats away at the hard outer layer (enamel), creating a hole that gets bigger over time if not treated.",
+            "why_it_happened": "Cavities form when bacteria in your mouth feed on sugars and starches from food and drinks. These bacteria produce acids that attack your tooth enamel. Over time, this acid breaks down the enamel and creates a hole. Factors include: frequent snacking, sugary drinks, not brushing enough, dry mouth, and certain medications.",
+            "warning_signs": ["Tooth sensitivity to hot, cold, or sweet foods", "Visible dark spots or holes in teeth", "Toothache or spontaneous pain", "Pain when biting down"],
+            "what_happens_if_untreated": "If left untreated, the cavity grows deeper into the tooth, reaching the nerve (pulp). This can cause severe pain, infection (abscess), and eventually tooth loss. The infection can also spread to other parts of your body."
+          },
+          "treatments": [
+            {
+              "name": "Dental Filling",
+              "description": "The dentist removes the decayed part of the tooth and fills the hole with a durable material.",
+              "materials": ["Composite (tooth-colored)", "Amalgam (silver)", "Gold", "Ceramic"],
+              "procedure_steps": [
+                "Numbing the area with local anesthetic",
+                "Removing the decayed tooth material with a drill",
+                "Cleaning the affected area",
+                "Filling the cleaned-out cavity with filling material",
+                "Polishing and adjusting your bite"
+              ],
+              "duration": "30-60 minutes",
+              "pain_level": "Minimal — you'll be numb during the procedure",
+              "recovery": "You can eat normally within a few hours. Some sensitivity for 1-2 weeks is normal.",
+              "cost_range": "$150 - $400 per tooth",
+              "longevity": "5-15 years depending on material and location"
+            },
+            {
+              "name": "Dental Crown",
+              "description": "For larger cavities, a crown (cap) covers and protects the entire visible part of the tooth.",
+              "procedure_steps": [
+                "Numbing and preparing the tooth by removing decay and shaping it",
+                "Taking impressions or digital scans of the tooth",
+                "Placing a temporary crown",
+                "Fitting and cementing the permanent crown (2nd visit)"
+              ],
+              "duration": "Two visits, 60-90 minutes each",
+              "cost_range": "$800 - $1,500 per crown",
+              "longevity": "10-15 years"
+            },
+            {
+              "name": "Root Canal",
+              "description": "When the cavity has reached the nerve, the infected pulp is removed, and the tooth is sealed. This saves the tooth from extraction.",
+              "procedure_steps": [
+                "X-ray to see the shape of root canals",
+                "Numbing the area",
+                "Creating an opening in the crown of the tooth",
+                "Removing the infected pulp tissue",
+                "Cleaning and shaping the root canals",
+                "Filling the canals with a rubber-like material",
+                "Placing a crown to protect the tooth"
+              ],
+              "duration": "1-2 visits, 60-90 minutes each",
+              "cost_range": "$700 - $1,500",
+              "longevity": "Lifetime with proper care and crown"
+            }
+          ],
+          "prevention": [
+            "Brush twice daily with fluoride toothpaste",
+            "Floss daily",
+            "Limit sugary snacks and drinks",
+            "Visit your dentist regularly for checkups",
+            "Consider dental sealants",
+            "Drink fluoridated water"
+          ],
+          "faq": [
+            {"q": "Does getting a filling hurt?", "a": "No. Your dentist will numb the area first. You may feel pressure but not pain. After the numbness wears off, you might have mild sensitivity for a few days."},
+            {"q": "Can a cavity heal on its own?", "a": "Very early-stage cavities (just in the enamel) can sometimes be reversed with fluoride treatments and improved oral hygiene. Once a cavity has broken through the enamel, it needs professional treatment."},
+            {"q": "How long does a filling last?", "a": "Composite fillings typically last 5-10 years, while amalgam fillings can last 10-15 years. With good oral hygiene, they can last even longer."},
+            {"q": "Is a root canal really that bad?", "a": "Modern root canals are very similar to getting a filling. With today's techniques and anesthesia, most patients say it was much easier than they expected."}
+          ]
+        },
+        {
+          "id": "cracked-tooth",
+          "name": "Cracked/Fractured Tooth",
+          "severity_levels": ["Craze Lines", "Fractured Cusp", "Cracked Tooth", "Split Tooth", "Vertical Root Fracture"],
+          "icd_code": "S02.5",
+          "prevalence": "Common, especially in adults over 40",
+          "patient_explanation": {
+            "what_it_is": "A crack in your tooth — like a crack in a windshield. It can range from tiny surface lines (harmless) to a deep crack that splits the tooth. The severity determines the treatment.",
+            "why_it_happened": "Teeth can crack from biting hard foods (ice, hard candy, popcorn kernels), grinding/clenching your teeth (bruxism), large fillings that weaken the tooth, sudden temperature changes in the mouth, or trauma/injury.",
+            "warning_signs": ["Sharp pain when biting or chewing", "Pain that comes and goes (not constant)", "Sensitivity to hot, cold, or sweet", "Swelling around the affected tooth"],
+            "what_happens_if_untreated": "A cracked tooth won't heal on its own. The crack can grow, allowing bacteria inside, leading to infection, pain, and potentially losing the tooth."
+          },
+          "treatments": [
+            {
+              "name": "Dental Bonding",
+              "description": "For minor cracks, a tooth-colored resin is applied to seal the crack.",
+              "duration": "30-60 minutes",
+              "cost_range": "$100 - $400",
+              "longevity": "3-10 years"
+            },
+            {
+              "name": "Crown",
+              "description": "A cap placed over the cracked tooth to hold it together and protect it.",
+              "duration": "Two visits",
+              "cost_range": "$800 - $1,500",
+              "longevity": "10-15 years"
+            },
+            {
+              "name": "Root Canal + Crown",
+              "description": "If the crack extends into the pulp, root canal treatment is needed before placing a crown.",
+              "cost_range": "$1,500 - $3,000",
+              "longevity": "Lifetime with proper care"
+            },
+            {
+              "name": "Extraction",
+              "description": "If the tooth is severely split or has a vertical root fracture, removal may be the only option. Can be replaced with an implant or bridge.",
+              "cost_range": "$150 - $400 (extraction) + replacement costs"
+            }
+          ],
+          "prevention": ["Wear a nightguard if you grind teeth", "Don't chew ice or hard objects", "Wear a mouthguard during sports", "Maintain regular dental checkups"],
+          "faq": [
+            {"q": "Can a cracked tooth heal?", "a": "Unlike bones, teeth cannot heal themselves. A crack needs dental treatment to prevent it from getting worse."},
+            {"q": "Do I need a crown for every crack?", "a": "Not always. Minor craze lines (surface cracks) often need no treatment. Your dentist will assess the depth and location to recommend the best option."}
+          ]
+        },
+        {
+          "id": "tooth-erosion",
+          "name": "Tooth Erosion",
+          "icd_code": "K03.2",
+          "patient_explanation": {
+            "what_it_is": "The gradual wearing away of your tooth enamel by acid. Unlike a cavity (caused by bacteria), erosion is caused by acids from foods, drinks, or stomach acid. Think of it as your teeth slowly dissolving.",
+            "why_it_happened": "Acidic foods and drinks (citrus, soda, wine, energy drinks), acid reflux (GERD), frequent vomiting (morning sickness, eating disorders), certain medications, low saliva production.",
+            "warning_signs": ["Teeth appearing more yellow (dentin showing through)", "Rounded or transparent edges on front teeth", "Increased sensitivity", "Cupping or dents on biting surfaces", "Cracks and chips"],
+            "what_happens_if_untreated": "Progressive loss of tooth structure, severe sensitivity, discoloration, and eventual need for extensive dental work."
+          },
+          "treatments": [
+            {"name": "Fluoride Treatments", "description": "Strengthen remaining enamel", "cost_range": "$20 - $50"},
+            {"name": "Dental Bonding", "description": "Protect damaged surfaces with composite resin", "cost_range": "$100 - $400"},
+            {"name": "Veneers or Crowns", "description": "For advanced erosion, cover and protect remaining tooth structure", "cost_range": "$800 - $2,500"}
+          ],
+          "prevention": ["Limit acidic foods and drinks", "Use a straw for acidic beverages", "Rinse mouth with water after acidic foods", "Wait 30 minutes before brushing after eating acidic foods", "Chew sugar-free gum to stimulate saliva"]
+        }
+      ]
+    },
+    {
+      "id": "periodontal",
+      "name": "Gum Disease & Periodontics",
+      "icon": "🩸",
+      "color": "#E74C3C",
+      "conditions": [
+        {
+          "id": "gingivitis",
+          "name": "Gingivitis",
+          "icd_code": "K05.1",
+          "prevalence": "Affects nearly half of adults over 30",
+          "patient_explanation": {
+            "what_it_is": "Gingivitis is the early stage of gum disease. Your gums become inflamed (red, swollen, and bleed easily) due to plaque buildup. Think of it as a warning signal — your gums are telling you they need more attention. The good news: it's completely reversible.",
+            "why_it_happened": "Plaque (a sticky film of bacteria) builds up along your gumline when you don't brush and floss thoroughly. This plaque irritates your gums, causing inflammation. Risk factors include smoking, diabetes, hormonal changes, certain medications, and genetics.",
+            "warning_signs": ["Red, swollen gums", "Bleeding when brushing or flossing", "Bad breath", "Tender gums", "Gums pulling away from teeth slightly"],
+            "what_happens_if_untreated": "Gingivitis can progress to periodontitis, a serious infection that destroys the bone supporting your teeth, eventually causing tooth loss."
+          },
+          "treatments": [
+            {
+              "name": "Professional Dental Cleaning",
+              "description": "Your hygienist removes plaque and tartar (hardened plaque) that you can't remove with regular brushing.",
+              "duration": "30-60 minutes",
+              "cost_range": "$75 - $200",
+              "frequency": "Every 6 months, or more often if recommended"
+            },
+            {
+              "name": "Improved Home Care",
+              "description": "Better brushing technique, daily flossing, and antiseptic mouthwash.",
+              "cost_range": "$10 - $30 (supplies)"
+            }
+          ],
+          "prevention": ["Brush 2x daily for 2 minutes", "Floss daily", "Use antiseptic mouthwash", "Regular dental cleanings", "Don't smoke", "Eat a balanced diet"],
+          "faq": [
+            {"q": "Is it normal for gums to bleed?", "a": "No. Bleeding gums are a sign of inflammation, usually from plaque buildup. While very common, it's not 'normal' and should be addressed."},
+            {"q": "Can gingivitis be cured?", "a": "Yes! Gingivitis is completely reversible with professional cleaning and improved daily oral hygiene. Most people see improvement within 2-3 weeks."}
+          ]
+        },
+        {
+          "id": "periodontitis",
+          "name": "Periodontitis",
+          "severity_levels": ["Mild", "Moderate", "Severe/Advanced"],
+          "icd_code": "K05.3",
+          "prevalence": "47% of adults over 30, 70% over 65",
+          "patient_explanation": {
+            "what_it_is": "Periodontitis is advanced gum disease where the infection has spread below the gumline and started destroying the bone that holds your teeth in place. Imagine the foundation of a house eroding — eventually the house becomes unstable. That's what happens to your teeth.",
+            "why_it_happened": "Untreated gingivitis progresses as bacteria move deeper below the gums, forming 'pockets' between teeth and gums. These pockets trap more bacteria, accelerating bone and tissue destruction.",
+            "warning_signs": ["Gums pulling away from teeth (receding)", "Persistent bad breath or bad taste", "Loose or shifting teeth", "Changes in bite", "Pus between teeth and gums", "Deep pockets between teeth and gums"],
+            "what_happens_if_untreated": "Continued bone loss leads to tooth loss. Research also links periodontitis to heart disease, diabetes complications, respiratory disease, and pregnancy complications."
+          },
+          "treatments": [
+            {
+              "name": "Scaling and Root Planing (Deep Cleaning)",
+              "description": "A non-surgical deep cleaning where the dentist cleans below the gumline, removing tartar from the root surfaces and smoothing them so gums can reattach.",
+              "duration": "1-2 hours, may need multiple visits",
+              "cost_range": "$200 - $400 per quadrant",
+              "recovery": "Gums may be tender for a few days. Improvement seen within 4-8 weeks."
+            },
+            {
+              "name": "Antibiotic Therapy",
+              "description": "Topical or oral antibiotics to control bacterial infection.",
+              "cost_range": "$20 - $100"
+            },
+            {
+              "name": "Flap Surgery",
+              "description": "For advanced cases, the gums are lifted back to remove deep tartar deposits, then sutured back for a tighter fit around the teeth.",
+              "cost_range": "$1,000 - $3,000 per quadrant"
+            },
+            {
+              "name": "Bone Grafting",
+              "description": "Replaces bone destroyed by periodontitis to support the teeth and stimulate new bone growth.",
+              "cost_range": "$200 - $1,200 per area"
+            }
+          ]
+        },
+        {
+          "id": "gum-recession",
+          "name": "Gum Recession",
+          "icd_code": "K06.0",
+          "patient_explanation": {
+            "what_it_is": "Your gums are pulling back from your teeth, exposing more of the tooth or even the root. It happens gradually, so you might not notice until sensitivity or appearance changes alert you.",
+            "why_it_happened": "Aggressive brushing, gum disease, genetics, grinding teeth, misaligned bite, tobacco use, lip/tongue piercings.",
+            "warning_signs": ["Teeth appearing longer", "Tooth sensitivity at the gumline", "Notch felt at the gumline", "Visible tooth roots"],
+            "what_happens_if_untreated": "Exposed roots are vulnerable to decay, sensitivity increases, and supporting bone can be damaged, eventually leading to tooth loss."
+          },
+          "treatments": [
+            {"name": "Desensitizing Agents/Bonding", "description": "Covers exposed root surface", "cost_range": "$100 - $300"},
+            {"name": "Gum Graft Surgery", "description": "Tissue taken from the palate or donor source is grafted to cover exposed roots", "cost_range": "$600 - $1,200 per tooth"},
+            {"name": "Pinhole Surgical Technique", "description": "Minimally invasive technique where gums are repositioned through a small hole", "cost_range": "$1,500 - $3,000"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orthodontics",
+      "name": "Orthodontics",
+      "icon": "😁",
+      "color": "#9B59B6",
+      "conditions": [
+        {
+          "id": "malocclusion",
+          "name": "Malocclusion (Misaligned Bite)",
+          "types": ["Overbite", "Underbite", "Crossbite", "Open Bite", "Crowding", "Spacing"],
+          "icd_code": "K07.4",
+          "patient_explanation": {
+            "what_it_is": "Malocclusion means your teeth don't line up correctly when you close your mouth. It's like puzzle pieces that don't quite fit together. This can affect how you chew, speak, and the appearance of your smile.",
+            "why_it_happened": "Usually inherited (jaw size, tooth size from parents), but can also be caused by thumb sucking, prolonged pacifier use, early loss of baby teeth, mouth breathing, or jaw injuries.",
+            "warning_signs": ["Teeth that are crooked or crowded", "Difficulty biting or chewing", "Mouth breathing", "Speech difficulties", "Jaw pain or clicking", "Cheek biting"],
+            "what_happens_if_untreated": "Uneven wear on teeth, increased risk of cavities and gum disease (hard-to-clean areas), jaw pain (TMJ), speech issues, and self-confidence concerns."
+          },
+          "treatments": [
+            {"name": "Traditional Braces", "description": "Metal or ceramic brackets bonded to teeth with wires that gradually move teeth into alignment", "duration": "12-36 months", "cost_range": "$3,000 - $7,000"},
+            {"name": "Clear Aligners (Invisalign)", "description": "Series of custom clear plastic trays that gradually shift teeth", "duration": "6-18 months", "cost_range": "$3,000 - $8,000"},
+            {"name": "Retainers", "description": "Worn after braces/aligners to maintain new tooth positions", "cost_range": "$150 - $600"}
+          ]
+        },
+        {
+          "id": "tmj-disorder",
+          "name": "TMJ Disorder",
+          "icd_code": "K07.6",
+          "patient_explanation": {
+            "what_it_is": "TMJ disorder affects the joint that connects your jawbone to your skull — like a hinge that's not working smoothly. You have one on each side of your face, right in front of your ears.",
+            "why_it_happened": "Teeth grinding/clenching (bruxism), jaw injury, arthritis, stress causing jaw tension, misaligned bite, excessive gum chewing.",
+            "warning_signs": ["Jaw pain or tenderness", "Clicking or popping sounds when opening mouth", "Difficulty opening mouth wide", "Headaches or earaches", "Locking of the jaw", "Pain when chewing"],
+            "what_happens_if_untreated": "Chronic pain, progressive joint damage, difficulty eating, headaches, and decreased quality of life."
+          },
+          "treatments": [
+            {"name": "Night Guard/Splint", "description": "Custom-fitted device worn at night to prevent grinding and reduce jaw stress", "cost_range": "$300 - $800"},
+            {"name": "Physical Therapy", "description": "Exercises to strengthen and stretch jaw muscles", "cost_range": "$100 - $200 per session"},
+            {"name": "Botox Injections", "description": "Relaxes overactive jaw muscles", "cost_range": "$500 - $1,500"},
+            {"name": "Arthroscopy", "description": "Minimally invasive surgery for severe cases", "cost_range": "$2,000 - $5,000"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oral-surgery",
+      "name": "Oral Surgery",
+      "icon": "🔪",
+      "color": "#E67E22",
+      "conditions": [
+        {
+          "id": "wisdom-teeth",
+          "name": "Wisdom Teeth Impaction",
+          "icd_code": "K01.1",
+          "prevalence": "About 85% of wisdom teeth need to be removed",
+          "patient_explanation": {
+            "what_it_is": "Wisdom teeth are the last molars to come in, usually between ages 17-25. Often, there isn't enough room in your jaw for them, so they get 'stuck' (impacted) — growing sideways, partially emerging, or staying trapped in the bone.",
+            "why_it_happened": "Human jaws have gotten smaller through evolution, but we still develop these extra molars. There simply isn't room for them in most people's mouths.",
+            "warning_signs": ["Pain at the back of the mouth", "Swelling or stiffness in the jaw", "Difficulty opening mouth", "Bad breath or bad taste (from infection)", "Red, swollen gums behind last molars"],
+            "what_happens_if_untreated": "Impacted wisdom teeth can cause infection, cysts, damage to neighboring teeth, gum disease, and tooth decay."
+          },
+          "treatments": [
+            {
+              "name": "Extraction (Simple)",
+              "description": "If the wisdom tooth has fully erupted, it can be pulled like any other tooth.",
+              "duration": "20-30 minutes per tooth",
+              "cost_range": "$75 - $200 per tooth"
+            },
+            {
+              "name": "Surgical Extraction",
+              "description": "For impacted teeth, a small incision is made in the gum, and bone may need to be removed to access the tooth. The tooth may be divided into pieces for easier removal.",
+              "duration": "30-60 minutes per tooth",
+              "cost_range": "$225 - $600 per tooth",
+              "recovery": "3-7 days for initial healing. Full healing in 2-4 weeks. Soft foods, ice packs, and prescribed pain medication."
+            }
+          ],
+          "aftercare": ["Apply ice packs for 20 min on/off", "Eat soft foods for 3-5 days", "Don't use straws (risk of dry socket)", "Gently rinse with warm salt water after 24 hours", "Take prescribed medications as directed", "Rest for 24-48 hours"],
+          "faq": [
+            {"q": "Do all wisdom teeth need to come out?", "a": "Not always. If they're fully erupted, properly positioned, and you can clean them well, they can stay. But most dentists recommend removal if there are signs of potential problems."},
+            {"q": "Can I be asleep for the procedure?", "a": "Yes. Options include local anesthesia (awake but numb), sedation (relaxed and drowsy), or general anesthesia (fully asleep). Your oral surgeon will discuss the best option."}
+          ]
+        },
+        {
+          "id": "dental-implant",
+          "name": "Dental Implant",
+          "icd_code": "Z96.5",
+          "patient_explanation": {
+            "what_it_is": "A dental implant is an artificial tooth root made of titanium that's placed into your jawbone. Think of it as an anchor — once it fuses with your bone (a process called osseointegration), a crown is attached on top to look and function like a natural tooth.",
+            "why_it_happened": "You're missing a tooth due to decay, gum disease, injury, or extraction. An implant is the closest thing to replacing a natural tooth.",
+            "warning_signs": [],
+            "what_happens_if_untreated": "Missing teeth cause bone loss in the jaw, shifting of surrounding teeth, difficulty chewing, speech changes, and facial appearance changes over time."
+          },
+          "treatments": [
+            {
+              "name": "Single Tooth Implant",
+              "description": "One implant post + one crown replaces a single missing tooth.",
+              "procedure_steps": [
+                "Initial consultation and imaging (CT scan)",
+                "Implant placement surgery (titanium post placed in jawbone)",
+                "Healing period for osseointegration (3-6 months)",
+                "Abutment placement (connector piece)",
+                "Crown placement (the visible tooth)"
+              ],
+              "duration": "3-9 months total process",
+              "cost_range": "$3,000 - $6,000",
+              "longevity": "25+ years, often lifetime",
+              "success_rate": "95-98%"
+            },
+            {
+              "name": "All-on-4 / Full Arch",
+              "description": "Four implants support a full arch of teeth for patients missing all teeth in upper or lower jaw.",
+              "cost_range": "$15,000 - $30,000 per arch",
+              "longevity": "20+ years"
+            }
+          ]
+        },
+        {
+          "id": "tooth-extraction",
+          "name": "Tooth Extraction",
+          "icd_code": "K08.1",
+          "patient_explanation": {
+            "what_it_is": "Removing a tooth that is too damaged to save. While dentists always try to preserve natural teeth, sometimes extraction is the best option for your overall oral health.",
+            "why_it_happened": "Severe decay, advanced gum disease, cracked/broken tooth beyond repair, overcrowding, or preparation for orthodontic treatment.",
+            "warning_signs": ["Severe toothache", "Infection that doesn't respond to antibiotics", "Loose tooth from bone loss"],
+            "what_happens_if_untreated": "The damaged tooth can cause spreading infection, bone loss, damage to neighboring teeth, and ongoing pain."
+          },
+          "treatments": [
+            {"name": "Simple Extraction", "description": "For visible, accessible teeth. Tooth is loosened and removed with forceps.", "duration": "20-40 minutes", "cost_range": "$75 - $300"},
+            {"name": "Surgical Extraction", "description": "For teeth that are broken, impacted, or below the gumline.", "cost_range": "$150 - $650"}
+          ],
+          "replacement_options": ["Dental Implant ($3,000-$6,000)", "Dental Bridge ($1,500-$5,000)", "Partial Denture ($300-$5,000)"]
+        }
+      ]
+    },
+    {
+      "id": "cosmetic",
+      "name": "Cosmetic Dentistry",
+      "icon": "✨",
+      "color": "#F39C12",
+      "conditions": [
+        {
+          "id": "teeth-whitening",
+          "name": "Teeth Whitening/Discoloration",
+          "icd_code": "K03.7",
+          "patient_explanation": {
+            "what_it_is": "Teeth naturally darken over time. Whitening treatments use bleaching agents to remove stains and restore a brighter smile. There are two types of stains: surface stains (from food/drinks) and internal stains (from aging, medications, or injury).",
+            "why_it_happened": "Coffee, tea, red wine, tobacco, aging, certain medications (tetracycline), excessive fluoride, trauma to a tooth.",
+            "warning_signs": ["Yellowing or darkening of teeth", "Uneven tooth color", "Stains that don't respond to regular brushing"],
+            "what_happens_if_untreated": "Purely cosmetic — discoloration itself doesn't harm your teeth, but it can affect confidence."
+          },
+          "treatments": [
+            {"name": "In-Office Whitening", "description": "Professional-strength bleaching applied by your dentist with special light activation", "duration": "60-90 minutes", "cost_range": "$400 - $800", "results": "3-8 shades lighter in one visit"},
+            {"name": "Take-Home Whitening Trays", "description": "Custom trays with professional-grade whitening gel used at home", "duration": "2-4 weeks", "cost_range": "$200 - $400"},
+            {"name": "Veneers", "description": "For stains that don't respond to bleaching, thin porcelain shells cover the front of teeth", "cost_range": "$800 - $2,500 per tooth", "longevity": "10-20 years"}
+          ]
+        },
+        {
+          "id": "veneers",
+          "name": "Dental Veneers",
+          "icd_code": "Z46.3",
+          "patient_explanation": {
+            "what_it_is": "Veneers are thin, custom-made shells of porcelain or composite that cover the front surface of your teeth — like press-on nails, but for your teeth. They transform the appearance of your smile by changing the color, shape, size, or length of your teeth.",
+            "why_it_happened": "Chosen for cosmetic improvement: discolored teeth that don't respond to whitening, worn down teeth, chipped or broken teeth, misaligned or irregularly shaped teeth, gaps between teeth.",
+            "warning_signs": [],
+            "what_happens_if_untreated": "N/A — veneers are elective cosmetic treatment."
+          },
+          "treatments": [
+            {"name": "Porcelain Veneers", "description": "Custom-made in a dental lab, very durable and natural-looking", "cost_range": "$800 - $2,500 per tooth", "longevity": "10-20 years", "visits": "2-3 visits"},
+            {"name": "Composite Veneers", "description": "Applied and sculpted directly on the tooth in one visit", "cost_range": "$250 - $600 per tooth", "longevity": "5-7 years", "visits": "1 visit"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "endodontics",
+      "name": "Endodontics (Root Canals)",
+      "icon": "🔬",
+      "color": "#1ABC9C",
+      "conditions": [
+        {
+          "id": "pulpitis",
+          "name": "Pulpitis (Tooth Nerve Inflammation)",
+          "types": ["Reversible", "Irreversible"],
+          "icd_code": "K04.0",
+          "patient_explanation": {
+            "what_it_is": "The pulp is the soft tissue inside your tooth containing nerves and blood vessels. When it becomes inflamed, that's pulpitis. Reversible pulpitis means the nerve can heal; irreversible means it can't and needs root canal treatment.",
+            "why_it_happened": "Deep cavity reaching near the nerve, repeated dental procedures on a tooth, crack or chip, trauma, severe grinding.",
+            "warning_signs": ["Sharp pain with hot or cold that lingers", "Spontaneous throbbing pain", "Pain that wakes you at night", "Tender to touch or bite"],
+            "what_happens_if_untreated": "The pulp tissue dies, leading to abscess (infection at the root tip), spreading infection, and eventual tooth loss."
+          },
+          "treatments": [
+            {"name": "Reversible: Filling/Crown", "description": "If caught early, removing the irritant and protecting the tooth may allow the pulp to heal", "cost_range": "$150 - $1,500"},
+            {"name": "Irreversible: Root Canal", "description": "Infected pulp is removed, canals cleaned, filled, and sealed. Crown placed for protection.", "cost_range": "$700 - $1,500 + crown"}
+          ]
+        },
+        {
+          "id": "dental-abscess",
+          "name": "Dental Abscess",
+          "icd_code": "K04.7",
+          "patient_explanation": {
+            "what_it_is": "A pocket of pus caused by bacterial infection at the root of a tooth or in the gums. This is a serious infection that won't go away on its own and can become dangerous if it spreads.",
+            "why_it_happened": "Untreated cavity that reached the pulp, failed root canal, cracked tooth allowing bacteria inside, severe gum disease.",
+            "warning_signs": ["Severe, persistent throbbing toothache", "Swelling in face or cheek", "Fever", "Sensitivity to pressure and temperature", "Foul taste from draining pus", "Tender/swollen lymph nodes", "Difficulty breathing or swallowing (EMERGENCY)"],
+            "what_happens_if_untreated": "The infection can spread to your jaw, head, neck, or even become life-threatening (sepsis). Seek treatment immediately."
+          },
+          "treatments": [
+            {"name": "Incision and Drainage", "description": "The abscess is cut open to drain the pus", "cost_range": "$100 - $300"},
+            {"name": "Antibiotics", "description": "To fight the infection, especially if it has spread", "cost_range": "$10 - $50"},
+            {"name": "Root Canal", "description": "To save the tooth by removing infected pulp", "cost_range": "$700 - $1,500"},
+            {"name": "Extraction", "description": "If the tooth can't be saved", "cost_range": "$75 - $300"}
+          ],
+          "emergency_note": "If you have difficulty breathing, swallowing, fever with facial swelling, or swelling that's spreading rapidly, go to the emergency room immediately."
+        }
+      ]
+    },
+    {
+      "id": "prosthodontics",
+      "name": "Prosthodontics (Replacements)",
+      "icon": "🦿",
+      "color": "#3498DB",
+      "conditions": [
+        {
+          "id": "dentures",
+          "name": "Dentures",
+          "icd_code": "Z97.2",
+          "patient_explanation": {
+            "what_it_is": "Dentures are removable replacements for missing teeth. They can replace all teeth (complete dentures) or just some teeth (partial dentures). Modern dentures look very natural and help you eat, speak, and smile with confidence.",
+            "why_it_happened": "Multiple missing teeth from decay, gum disease, or injury. Dentures restore function and appearance.",
+            "warning_signs": [],
+            "what_happens_if_untreated": "Without replacing missing teeth: difficulty chewing, speech problems, facial sagging, remaining teeth shifting, bone loss in the jaw."
+          },
+          "treatments": [
+            {"name": "Complete Dentures", "description": "Replace all teeth in upper or lower jaw. Held in place by suction and/or adhesive.", "cost_range": "$1,000 - $3,000 per arch"},
+            {"name": "Partial Dentures", "description": "Replace some missing teeth, clip onto remaining natural teeth.", "cost_range": "$500 - $2,500"},
+            {"name": "Implant-Supported Dentures", "description": "Snap onto dental implants for better stability and no slipping.", "cost_range": "$3,500 - $30,000"}
+          ]
+        },
+        {
+          "id": "dental-bridge",
+          "name": "Dental Bridge",
+          "icd_code": "Z46.3",
+          "patient_explanation": {
+            "what_it_is": "A dental bridge literally 'bridges' the gap created by one or more missing teeth. It consists of artificial teeth anchored to the natural teeth on either side of the gap. Unlike a denture, a bridge is cemented in place and doesn't come out.",
+            "why_it_happened": "Missing teeth that need a fixed (non-removable) replacement.",
+            "warning_signs": [],
+            "what_happens_if_untreated": "Gap allows remaining teeth to shift, bite problems, difficulty chewing, bone loss."
+          },
+          "treatments": [
+            {"name": "Traditional Bridge", "description": "Crowns placed on teeth on either side of gap, with false tooth in between", "cost_range": "$1,500 - $5,000 for 3 units", "longevity": "5-15 years"},
+            {"name": "Maryland Bridge", "description": "False tooth held by metal or porcelain wings bonded to back of adjacent teeth. Less invasive.", "cost_range": "$1,000 - $2,300"},
+            {"name": "Implant-Supported Bridge", "description": "Anchored by implants instead of natural teeth. Best for multiple missing teeth.", "cost_range": "$5,000 - $15,000"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pediatric",
+      "name": "Pediatric Dentistry",
+      "icon": "👶",
+      "color": "#FF6B9D",
+      "conditions": [
+        {
+          "id": "baby-bottle-decay",
+          "name": "Baby Bottle Tooth Decay",
+          "icd_code": "K02.5",
+          "patient_explanation": {
+            "what_it_is": "Severe decay in baby teeth, most often the upper front teeth, caused by prolonged exposure to sugary liquids. Even though baby teeth fall out, they're important for proper development.",
+            "why_it_happened": "Putting baby to bed with a bottle of milk, formula, or juice. Prolonged use of sippy cups with sugary drinks. Not cleaning baby's teeth/gums after feeding.",
+            "warning_signs": ["White spots on teeth near gumline (early)", "Brown or black spots on teeth", "Tooth pain or sensitivity", "Broken or pitted teeth"],
+            "what_happens_if_untreated": "Pain, infection, early tooth loss (affecting speech development and spacing for permanent teeth), difficulty eating, self-esteem issues."
+          },
+          "treatments": [
+            {"name": "Fluoride Varnish", "description": "For very early decay (white spots)", "cost_range": "$20 - $50"},
+            {"name": "Fillings", "description": "For small to moderate cavities", "cost_range": "$100 - $300"},
+            {"name": "Stainless Steel Crowns", "description": "For severely damaged baby teeth", "cost_range": "$200 - $500"},
+            {"name": "Extraction", "description": "If the tooth can't be saved. Space maintainer may be placed.", "cost_range": "$75 - $300"}
+          ]
+        },
+        {
+          "id": "dental-sealants",
+          "name": "Dental Sealants",
+          "patient_explanation": {
+            "what_it_is": "Sealants are a thin, protective coating painted on the chewing surfaces of back teeth (molars). They act like a raincoat for your teeth — sealing out food and bacteria from the tiny grooves where cavities most often start.",
+            "why_it_happened": "Preventive treatment, not a response to a problem. Recommended for children when permanent molars come in (around ages 6 and 12).",
+            "warning_signs": [],
+            "what_happens_if_untreated": "N/A — sealants are preventive. Without them, molars are more vulnerable to decay in their grooves."
+          },
+          "treatments": [
+            {"name": "Sealant Application", "description": "Quick, painless process — tooth is cleaned, conditioned, and sealant painted on. Hardened with a curing light.", "duration": "5-10 minutes per tooth", "cost_range": "$30 - $60 per tooth", "longevity": "Up to 10 years with checkups", "pain_level": "None — no drilling or needles"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "preventive",
+      "name": "Preventive Care",
+      "icon": "🛡️",
+      "color": "#2ECC71",
+      "conditions": [
+        {
+          "id": "oral-cancer-screening",
+          "name": "Oral Cancer Screening",
+          "patient_explanation": {
+            "what_it_is": "A quick, painless examination of your mouth, tongue, throat, and neck to check for signs of oral cancer or precancerous conditions. Early detection dramatically improves outcomes — the 5-year survival rate jumps from 39% (late stage) to 84% (early stage).",
+            "why_it_happened": "Routine screening — part of your regular dental checkup. Higher risk if: tobacco use, heavy alcohol use, HPV infection, excessive sun exposure to lips, family history.",
+            "warning_signs": ["A sore that doesn't heal within 2 weeks", "Red or white patch in mouth", "Lump or thickening in cheek", "Difficulty chewing or swallowing", "Numbness in mouth", "Ear pain", "Chronic sore throat or hoarseness"],
+            "what_happens_if_untreated": "Oral cancer can spread rapidly. Early detection is critical for successful treatment."
+          },
+          "treatments": [
+            {"name": "Visual & Physical Exam", "description": "Dentist visually inspects oral tissues and feels for lumps or abnormalities", "cost_range": "Usually included in regular exam"},
+            {"name": "Brush Biopsy", "description": "If suspicious area found, cells are collected for lab analysis", "cost_range": "$50 - $200"},
+            {"name": "Referral to Specialist", "description": "If biopsy is positive, referral to oral surgeon or oncologist"}
+          ]
+        },
+        {
+          "id": "dry-mouth",
+          "name": "Dry Mouth (Xerostomia)",
+          "icd_code": "K11.7",
+          "patient_explanation": {
+            "what_it_is": "Your mouth doesn't produce enough saliva. Saliva is crucial — it washes away food, neutralizes acids, and prevents infection. Without enough saliva, you're at much higher risk for cavities, gum disease, and mouth infections.",
+            "why_it_happened": "Most commonly caused by medications (400+ medications list dry mouth as a side effect), aging, radiation therapy, autoimmune conditions (Sjögren's syndrome), nerve damage, dehydration.",
+            "warning_signs": ["Sticky, dry feeling in mouth", "Frequent thirst", "Difficulty chewing, swallowing, or speaking", "Dry or sore throat", "Bad breath", "Cracked lips", "Burning sensation in mouth"],
+            "what_happens_if_untreated": "Dramatically increased risk of cavities, oral thrush (fungal infection), gum disease, and difficulty eating."
+          },
+          "treatments": [
+            {"name": "Saliva Substitutes", "description": "Over-the-counter sprays and gels that mimic saliva", "cost_range": "$5 - $15"},
+            {"name": "Prescription Medications", "description": "Pilocarpine or cevimeline to stimulate saliva production", "cost_range": "$30 - $100/month"},
+            {"name": "Fluoride Treatments", "description": "Extra fluoride protection due to increased cavity risk", "cost_range": "$20 - $50"},
+            {"name": "Medication Adjustment", "description": "Work with your doctor to switch medications causing dry mouth"}
+          ]
+        }
+      ]
+    }
+  ],
+  "ai_prompt_templates": {
+    "patient_explanation": "You are a dental patient education assistant. A dentist is showing a patient information about: {condition_name}. Using the provided clinical data, generate a warm, reassuring, patient-friendly explanation at a 6th-grade reading level. Use analogies and simple language. Structure: 1) What it is (2-3 sentences), 2) Why it happened (2-3 sentences), 3) Treatment overview (brief, reassuring), 4) What to expect. Tone: warm, empathetic, not condescending. Avoid medical jargon.",
+    "treatment_comparison": "Compare the following treatment options for {condition_name} in a simple table format the patient can understand. Include: procedure description in plain language, time required, recovery, approximate cost, how long it lasts. End with a brief note that the dentist will recommend the best option based on their specific situation.",
+    "aftercare_instructions": "Generate clear, numbered aftercare instructions for a patient who just had {procedure_name}. Include: what to do in the first 24 hours, pain management, diet restrictions, warning signs to call the dentist, and timeline for follow-up. Use simple, direct language.",
+    "child_friendly": "Explain {condition_name} to a child (age 6-12) in a fun, non-scary way. Use analogies they'd understand (superheroes, animals, games). Emphasize that the dentist is a helper, not someone to fear. Keep it brief (3-4 sentences).",
+    "spanish_translation": "Translate the following dental patient education content into Spanish, maintaining a warm and accessible tone. Use common Spanish medical terminology that patients in the US would understand.",
+    "cost_breakdown": "Based on the treatment options for {condition_name}, provide a clear cost breakdown showing: procedure cost range, what insurance typically covers, expected out-of-pocket costs, and payment plan options. Note: These are estimates and actual costs vary by location and provider."
+  },
+  "drug_reference": {
+    "common_dental_medications": [
+      {"name": "Lidocaine", "type": "Local Anesthetic", "use": "Numbing during procedures", "notes": "Most common dental anesthetic. Takes effect in 2-5 minutes, lasts 1-2 hours."},
+      {"name": "Ibuprofen (Advil)", "type": "NSAID Pain Reliever", "use": "Post-procedure pain", "dosage": "400-600mg every 6-8 hours", "notes": "Often recommended over opioids for dental pain"},
+      {"name": "Acetaminophen (Tylenol)", "type": "Pain Reliever", "use": "Post-procedure pain", "dosage": "500-1000mg every 6 hours", "notes": "Can be alternated with ibuprofen for better pain control"},
+      {"name": "Amoxicillin", "type": "Antibiotic", "use": "Dental infections, pre-procedure prophylaxis", "dosage": "500mg 3x daily for 7-10 days", "notes": "Most commonly prescribed dental antibiotic"},
+      {"name": "Clindamycin", "type": "Antibiotic", "use": "Alternative for penicillin-allergic patients", "dosage": "300mg 4x daily for 7 days"},
+      {"name": "Chlorhexidine (Peridex)", "type": "Antiseptic Mouthwash", "use": "Gum disease, post-surgery", "notes": "Prescription-strength. May cause temporary staining."},
+      {"name": "Fluoride Varnish", "type": "Preventive", "use": "Cavity prevention, sensitivity", "notes": "Applied professionally, provides extended fluoride release"}
+    ]
+  }
+}
