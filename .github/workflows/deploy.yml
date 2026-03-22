@@ -45,14 +45,16 @@ jobs:
           # Copy root-level extra files
           for f in blog.html sitemap.xml search-index.js search.js robots.txt; do
             if [ -f "$f" ]; then
-              cp "$f" dist/
+              cp -f "$f" dist/
               echo "Copied: $f"
             fi
           done
-          # Copy blog/ folder
+          # Copy blog/ folder — remove any existing dist/blog first to avoid nesting
           if [ -d "blog" ]; then
-            cp -r blog dist/blog
-            echo "Copied: blog/ ($(ls blog | wc -l) files)"
+            rm -rf dist/blog
+            mkdir -p dist/blog
+            cp blog/*.html dist/blog/
+            echo "Copied: blog/ ($(ls blog/*.html | wc -l) files)"
           fi
           # List dist contents for verification
           echo "--- dist/ contents ---"
