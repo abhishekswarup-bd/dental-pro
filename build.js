@@ -25,9 +25,30 @@ async function build() {
   if (!fs.existsSync(DIST)) fs.mkdirSync(DIST, { recursive: true });
 
   // Read source
-  const src = fs.readFileSync(SRC, "utf-8");
+  let src = fs.readFileSync(SRC, "utf-8");
   const srcSize = Buffer.byteLength(src);
   console.log(` 📄 Source: ${(srcSize / 1024).toFixed(1)} KB`);
+
+  // Inject API keys from environment variables (GitHub Secrets)
+  const keyMap = {
+    __GROQ_API_KEY__: process.env.GROQ_API_KEY || "",
+    __GEMINI_API_KEY_1__: process.env.GEMINI_API_KEY_1 || "",
+    __GEMINI_API_KEY_2__: process.env.GEMINI_API_KEY_2 || "",
+    __OPENROUTER_API_KEY__: process.env.OPENROUTER_API_KEY || "",
+  };
+  let injected = 0;
+  for (const [placeholder, value] of Object.entries(keyMap)) {
+    if (value && src.includes(placeholder)) {
+      src = src.replace(placeholder, value);
+      injected++;
+    }
+  }
+  console.log(` 🔑 API keys: ${injected} of ${Object.keys(keyMap).length} injected`);
+
+  // Warn if keys missing (non-blocking — app still works with local fallback)
+  if (injected === 0) {
+    console.log("  ⚠️  No API keys found in env — AI search will use local fallback only");
+  }
 
   // Minify
   const minified = await minify(src, {

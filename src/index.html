@@ -1006,7 +1006,7 @@ function renderNav(){
     <div class="lang-sel"><button class="lang-btn" onclick="S.showLangDD=!S.showLangDD;R()">${curLang().flag} ${curLang().code.toUpperCase()} ▾</button>
       <div class="lang-dd ${S.showLangDD?'open':''}">${LANGS.map(lg=>`<button class="lang-opt ${S.lang===lg.code?'act':''}" onclick="setLang('${lg.code}')"><span class="lf">${lg.flag}</span>${lg.name}</button>`).join('')}</div></div>
     <button class="theme-btn" onclick="toggleTheme()" title="Toggle theme"><span class="theme-icon">${S.theme==='dark'?'☀️':'🌙'}</span></button>
-    <span class="pill pill-b">v1.0</span>${r}<button class="ham" onclick="toggleMM()">☰</button></div></nav>`;
+    ${r}<button class="ham" onclick="toggleMM()">☰</button></div></nav>`;
 }
 
 function renderHome(){
@@ -1750,7 +1750,82 @@ function bind(){
   },{once:true});
 }
 
-// ─── DENTAL AI SEARCH (Claude-powered, dental-only) ───
+// ─── AI PROVIDER FALLBACK CHAIN ───
+// Keys injected at build time from GitHub Secrets (placeholders replaced by build.js)
+const AI_KEYS={
+  groq:'__GROQ_API_KEY__',
+  gemini1:'__GEMINI_API_KEY_1__',
+  gemini2:'__GEMINI_API_KEY_2__',
+  openrouter:'__OPENROUTER_API_KEY__'
+};
+
+const DENTAL_SYSTEM_PROMPT=lang=>`You are a dental health AI assistant embedded in Dental Pro. You ONLY answer questions related to dentistry, teeth, oral health, dental procedures, dental materials, orthodontics, periodontics, endodontics, oral surgery, pediatric dentistry, preventive care, dental hygiene, and related dental/oral topics. If a question is NOT about dentistry or oral health, politely decline and say you can only help with dental topics. Always respond in ${lang}. Be concise (2-4 paragraphs max), accurate, and patient-friendly. Add a disclaimer that this is educational only and not a substitute for professional dental advice.`;
+
+// Provider definitions — tried in order
+const AI_PROVIDERS=[
+  {
+    name:'Groq',
+    url:'https://api.groq.com/openai/v1/chat/completions',
+    enabled:()=>AI_KEYS.groq&&!AI_KEYS.groq.startsWith('__'),
+    build:(sys,msg)=>({
+      method:'POST',
+      headers:{'Content-Type':'application/json','Authorization':'Bearer '+AI_KEYS.groq},
+      body:JSON.stringify({model:'llama-3.3-70b-versatile',max_tokens:1000,messages:[{role:'system',content:sys},{role:'user',content:msg}]})
+    }),
+    parse:d=>d.choices?.[0]?.message?.content||''
+  },
+  {
+    name:'Gemini',
+    url:()=>`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${AI_KEYS.gemini1}`,
+    enabled:()=>AI_KEYS.gemini1&&!AI_KEYS.gemini1.startsWith('__'),
+    build:(sys,msg)=>({
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({system_instruction:{parts:[{text:sys}]},contents:[{parts:[{text:msg}]}],generationConfig:{maxOutputTokens:1000}})
+    }),
+    parse:d=>d.candidates?.[0]?.content?.parts?.map(p=>p.text).join('')||''
+  },
+  {
+    name:'Gemini-2',
+    url:()=>`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${AI_KEYS.gemini2}`,
+    enabled:()=>AI_KEYS.gemini2&&!AI_KEYS.gemini2.startsWith('__'),
+    build:(sys,msg)=>({
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({system_instruction:{parts:[{text:sys}]},contents:[{parts:[{text:msg}]}],generationConfig:{maxOutputTokens:1000}})
+    }),
+    parse:d=>d.candidates?.[0]?.content?.parts?.map(p=>p.text).join('')||''
+  },
+  {
+    name:'OpenRouter',
+    url:'https://openrouter.ai/api/v1/chat/completions',
+    enabled:()=>AI_KEYS.openrouter&&!AI_KEYS.openrouter.startsWith('__'),
+    build:(sys,msg)=>({
+      method:'POST',
+      headers:{'Content-Type':'application/json','Authorization':'Bearer '+AI_KEYS.openrouter,'HTTP-Referer':'https://DentalProAIaaS.ai','X-Title':'Dental Pro'},
+      body:JSON.stringify({model:'meta-llama/llama-3.3-70b-instruct:free',max_tokens:1000,messages:[{role:'system',content:sys},{role:'user',content:msg}]})
+    }),
+    parse:d=>d.choices?.[0]?.message?.content||''
+  }
+];
+
+async function aiQuery(systemPrompt,userMessage){
+  const active=AI_PROVIDERS.filter(p=>p.enabled());
+  for(const p of active){
+    try{
+      const url=typeof p.url==='function'?p.url():p.url;
+      const opts=p.build(systemPrompt,userMessage);
+      const r=await fetch(url,opts);
+      if(!r.ok) continue;
+      const d=await r.json();
+      const text=p.parse(d);
+      if(text) return {text,provider:p.name};
+    }catch(e){console.warn(`[Dental Pro] ${p.name} failed:`,e.message);continue;}
+  }
+  return null;
+}
+
+// ─── DENTAL AI SEARCH ───
 function askDentalPro(){
   const input=document.getElementById('dental-search-input');
   const resultDiv=document.getElementById('dental-search-result');
@@ -1762,24 +1837,15 @@ function askDentalPro(){
   resultDiv.innerHTML=`<div style="display:flex;align-items:center;gap:8px;padding:8px 0"><div style="width:20px;height:20px;border:2px solid var(--blue);border-top-color:transparent;border-radius:50%;animation:spin .8s linear infinite"></div><span style="color:var(--t3);font-size:.78rem">${t('dSearchThinking')}</span></div><style>@keyframes spin{to{transform:rotate(360deg)}}</style>`;
 
   const langName=curLang().name;
-  fetch('https://api.anthropic.com/v1/messages',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({
-      model:'claude-sonnet-4-20250514',
-      max_tokens:1000,
-      system:`You are a dental health AI assistant embedded in Dental Pro. You ONLY answer questions related to dentistry, teeth, oral health, dental procedures, dental materials, orthodontics, periodontics, endodontics, oral surgery, pediatric dentistry, preventive care, dental hygiene, and related dental/oral topics. If a question is NOT about dentistry or oral health, politely decline and say you can only help with dental topics. Always respond in ${langName}. Be concise (2-4 paragraphs max), accurate, and patient-friendly. Add a disclaimer that this is educational only and not a substitute for professional dental advice.`,
-      messages:[{role:'user',content:q}]
-    })
-  })
-  .then(r=>r.json())
-  .then(d=>{
-    const text=d.content?.map(c=>c.text||'').join('')||'Error. Please try again.';
-    resultDiv.innerHTML=`<div style="padding:10px 14px;border-radius:var(--r2);background:rgba(74,144,217,.06);border:1px solid rgba(74,144,217,.1);white-space:pre-wrap;word-wrap:break-word">${text.replace(/\n/g,'<br>').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/&lt;br&gt;/g,'<br>')}</div>`;
-  })
-  .catch(e=>{
-    // Fallback to local knowledge if API unavailable
-    resultDiv.innerHTML=`<div style="padding:10px 14px;border-radius:var(--r2);background:rgba(74,144,217,.06);border:1px solid rgba(74,144,217,.1)">${getDentalFallback(q)}</div>`;
+  const sys=DENTAL_SYSTEM_PROMPT(langName);
+
+  aiQuery(sys,q).then(result=>{
+    if(result){
+      const text=result.text;
+      resultDiv.innerHTML=`<div style="padding:10px 14px;border-radius:var(--r2);background:rgba(74,144,217,.06);border:1px solid rgba(74,144,217,.1);white-space:pre-wrap;word-wrap:break-word">${text.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>')}</div>`;
+    } else {
+      resultDiv.innerHTML=`<div style="padding:10px 14px;border-radius:var(--r2);background:rgba(74,144,217,.06);border:1px solid rgba(74,144,217,.1)">${getDentalFallback(q)}</div>`;
+    }
   });
 }
 
