@@ -3,9 +3,9 @@
  * Dental Pro — Build Script
  * Minifies the single-file HTML app for production deployment.
  *
- * Input:  src/index.html
- * Output: dist/index.html  (minified)
- *         dist/404.html     (copy for SPA-style GitHub Pages routing)
+ * Input: src/index.html
+ * Output: dist/index.html (minified)
+ *         dist/404.html (copy for SPA-style GitHub Pages routing)
  */
 
 const fs = require("fs");
@@ -27,7 +27,7 @@ async function build() {
   // Read source
   const src = fs.readFileSync(SRC, "utf-8");
   const srcSize = Buffer.byteLength(src);
-  console.log(`  📄 Source:  ${(srcSize / 1024).toFixed(1)} KB`);
+  console.log(` 📄 Source: ${(srcSize / 1024).toFixed(1)} KB`);
 
   // Minify
   const minified = await minify(src, {
@@ -38,10 +38,10 @@ async function build() {
     minifyCSS: true,
     minifyJS: {
       compress: {
-        drop_console: false,   // keep console.log for auto-update system
+        drop_console: false, // keep console.log for auto-update system
         passes: 2,
       },
-      mangle: false,           // don't mangle — single-file app uses global names
+      mangle: false, // don't mangle — single-file app uses global names
     },
     sortAttributes: true,
     sortClassName: true,
@@ -62,18 +62,17 @@ async function build() {
     const destPath = path.join(DIST, file);
     if (fs.statSync(srcPath).isFile()) {
       fs.copyFileSync(srcPath, destPath);
-      console.log(`  📋 Copied:  ${file}`);
+      console.log(` 📋 Copied: ${file}`);
     }
   });
 
-
-  // Copy extra root-level files into dist
-  const extras = ["blog.html", "sitemap.xml", "search-index.js", "search.js"];
+  // Copy extra root-level files into dist (blog, search, sitemap)
+  const extras = ["blog.html", "sitemap.xml", "search-index.js", "search.js", "robots.txt"];
   extras.forEach((f) => {
     const fp = path.join(__dirname, f);
     if (fs.existsSync(fp)) {
       fs.copyFileSync(fp, path.join(DIST, f));
-      console.log(`  📋 Copied: ${f}`);
+      console.log(` 📋 Copied: ${f}`);
     }
   });
 
@@ -85,13 +84,13 @@ async function build() {
     fs.readdirSync(blogSrc).forEach((f) => {
       fs.copyFileSync(path.join(blogSrc, f), path.join(blogDist, f));
     });
-    console.log(`  📋 Copied: blog/ (${fs.readdirSync(blogSrc).length} files)`);
+    console.log(` 📋 Copied: blog/ (${fs.readdirSync(blogSrc).length} files)`);
   }
 
   const elapsed = Date.now() - start;
-  console.log(`  📦 Output:  ${(outSize / 1024).toFixed(1)} KB (${savings}% smaller)`);
-  console.log(`\n  ✅ Build complete in ${elapsed}ms`);
-  console.log(`  📁 Output directory: dist/\n`);
+  console.log(` 📦 Output: ${(outSize / 1024).toFixed(1)} KB (${savings}% smaller)`);
+  console.log(`\n ✅ Build complete in ${elapsed}ms`);
+  console.log(` 📁 Output directory: dist/\n`);
 }
 
 build().catch((err) => {
