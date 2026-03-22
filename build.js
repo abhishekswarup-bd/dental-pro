@@ -66,6 +66,28 @@ async function build() {
     }
   });
 
+
+  // Copy extra root-level files into dist
+  const extras = ["blog.html", "sitemap.xml", "search-index.js", "search.js"];
+  extras.forEach((f) => {
+    const fp = path.join(__dirname, f);
+    if (fs.existsSync(fp)) {
+      fs.copyFileSync(fp, path.join(DIST, f));
+      console.log(`  📋 Copied: ${f}`);
+    }
+  });
+
+  // Copy blog/ folder into dist/blog/
+  const blogSrc = path.join(__dirname, "blog");
+  if (fs.existsSync(blogSrc)) {
+    const blogDist = path.join(DIST, "blog");
+    if (!fs.existsSync(blogDist)) fs.mkdirSync(blogDist, { recursive: true });
+    fs.readdirSync(blogSrc).forEach((f) => {
+      fs.copyFileSync(path.join(blogSrc, f), path.join(blogDist, f));
+    });
+    console.log(`  📋 Copied: blog/ (${fs.readdirSync(blogSrc).length} files)`);
+  }
+
   const elapsed = Date.now() - start;
   console.log(`  📦 Output:  ${(outSize / 1024).toFixed(1)} KB (${savings}% smaller)`);
   console.log(`\n  ✅ Build complete in ${elapsed}ms`);
